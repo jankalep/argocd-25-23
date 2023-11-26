@@ -2,10 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   creationTimestamp: "2023-11-25T21:41:01Z"
-  generation: 279
+  generation: 287
   name: helm-25-23
   namespace: argocd
-  resourceVersion: "1582630"
+  resourceVersion: "1584751"
   uid: a8750da7-4de3-4027-adf7-c854af628c77
 spec:
   destination:
@@ -119,7 +119,7 @@ status:
         chart: jenkins
         repoURL: https://jankalep.github.io/helm-25-23/
         targetRevision: 0.2.6
-  reconciledAt: "2023-11-26T10:56:40Z"
+  reconciledAt: "2023-11-26T11:20:40Z"
   resources:
   - kind: ConfigMap
     name: my-basic-config
