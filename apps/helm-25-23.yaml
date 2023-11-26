@@ -1,0 +1,83 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: "2023-11-25T15:28:54Z"
+  generation: 19
+  name: helm-25-23
+  namespace: argocd
+  resourceVersion: "1516515"
+  uid: b64e1d3d-4656-4d34-89c9-3e564383d071
+spec:
+  destination:
+    namespace: my-helm-jenkins
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: jenkins
+    repoURL: https://jankalep.github.io/helm-25-23/
+    targetRevision: 0.2.1
+status:
+  controllerNamespace: argocd
+  health:
+    status: Healthy
+  reconciledAt: "2023-11-25T16:22:18Z"
+  resources:
+  - kind: ConfigMap
+    name: my-basic-config
+    namespace: my-helm-jenkins
+    status: OutOfSync
+    version: v1
+  - kind: ConfigMap
+    name: my-jenkins-config
+    namespace: my-helm-jenkins
+    status: OutOfSync
+    version: v1
+  - kind: Namespace
+    name: my-helm-jenkins
+    status: OutOfSync
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: my-helm-jenkins
+    namespace: my-helm-jenkins
+    status: OutOfSync
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: my-helm-jenkins
+    namespace: my-helm-jenkins
+    status: OutOfSync
+    version: v1
+  - group: networking.k8s.io
+    health:
+      status: Healthy
+    kind: Ingress
+    name: helm-jenkins-ingress
+    namespace: my-helm-jenkins
+    status: OutOfSync
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+    name: my-helm-jenkins-binding
+    status: OutOfSync
+    version: v1
+  sourceType: Helm
+  summary:
+    externalURLs:
+    - http://helm-jenkins.k8s-6.sa/
+    images:
+    - jfrog.it-academy.by/public/jenkins-ci:pivanchuk
+  sync:
+    comparedTo:
+      destination:
+        namespace: my-helm-jenkins
+        server: https://kubernetes.default.svc
+      source:
+        chart: jenkins
+        repoURL: https://jankalep.github.io/helm-25-23/
+        targetRevision: 0.2.1
+    revision: 0.2.1
+    status: OutOfSync
